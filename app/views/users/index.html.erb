@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">
-                            <%= link_to gravatar_for(user, size: 100), user %>
+                            <%= link_to user %>
                         </h5>
                         <p class="card-text">
                             <%= pluralize(user.articles.count, "article") %>

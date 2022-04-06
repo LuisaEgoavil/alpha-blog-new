@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  #TODO: shouldn't it be a post request instead a GET request? the turbo_method just works if I change here toa GET request
-  get 'logout', to: 'sessions#destroy' 
+  delete 'logout', to: 'sessions#destroy' 
   resources :categories, except: [:destroy]
 end
