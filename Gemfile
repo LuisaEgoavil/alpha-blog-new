@@ -51,7 +51,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
  
 
 # Use Sass to process CSS
@@ -64,6 +64,7 @@ group :development, :test do
   
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pg" 
 end
 
 group :development do
