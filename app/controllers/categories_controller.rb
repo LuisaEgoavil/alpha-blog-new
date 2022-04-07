@@ -1,29 +1,34 @@
-class CategoriesController < ApplicationController   
-    def new 
-        @category = Category.new
-    end 
+# frozen_string_literal: true
 
-    def create  
-        @category = Category.new(category_params)
-        if @category.save  
-            flash[:notice] = "Category was successfully created" 
-            redirect_to @category
-        else  
-            render :new, status: :unprocessable_entity
-        end
+# Create new category, show individual category details, list categories (index)
+class CategoriesController < ApplicationController
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:notice] = 'Category was successfully created'
+      redirect_to @category
+    else
+      render :new, status: :unprocessable_entity
     end
+  end
 
-    def index 
-        # pagination
-        @categories = Category.paginate(page: params[:page], per_page: 5)
-    end 
+  def index
+    # pagination
 
-    def show  
-        @category = Category.find(params[:id])
-    end 
+    @categories = Category.paginate(page: params[:page], per_page: 5)
+  end
 
-    private 
-    def category_params 
-        params.require(:category).permit(:name)
-    end
+  def show
+    @category = Category.find(params[:id])
+  end
+
+  private
+
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end
